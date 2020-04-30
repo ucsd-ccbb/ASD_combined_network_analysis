@@ -1,0 +1,6 @@
+	psoriasis	atherosclerosis	kartagena	CHD	ASD
+psoriasis	0.0	1535.0	110.0	353.0	222.0
+atherosclerosis	1535.0	0.0	134.0	558.0	257.0
+kartagena	110.0	134.0	0.0	188.0	290.0
+CHD	353.0	558.0	188.0	0.0	844.0
+ASD	222.0	257.0	290.0	844.0	0.0
