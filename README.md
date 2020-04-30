@@ -1,2 +1,2 @@
-# ASD_combined_network_analysis
-Notebooks from ASD combined network analysis paper
+# ASD_CHDcombined_network_analysis
+Notebooks from ASD-CHD combined network analysis paper
