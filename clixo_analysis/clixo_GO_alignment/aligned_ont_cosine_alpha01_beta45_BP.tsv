@@ -1,0 +1,59 @@
+,Aligned_Term,Aligned_Similarity,Aligned_FDR,Aligned_Term_Description,Label,term_label
+845,GO:0071642,0.11175,0.0,positive regulation of macrophage inflammatory protein 1 alpha production,"845
+positive regulation of macrophage inflammatory protein 1 alpha production",845
+846,GO:0018027,0.277038,0.0,peptidyl-lysine dimethylation,"846
+peptidyl-lysine dimethylation",846
+851,GO:0007220,0.322498,0.0,Notch receptor processing,"851
+Notch receptor processing",851
+852,GO:0038166,0.100314,0.0,angiotensin-activated signaling pathway,"852
+angiotensin-activated signaling pathway",852
+853,GO:0018076,0.161063,0.0,N-terminal peptidyl-lysine acetylation,"853
+N-terminal peptidyl-lysine acetylation",853
+856,GO:0070544,0.108145,0.0,histone H3-K36 demethylation,"856
+histone H3-K36 demethylation",856
+858,GO:0018345,0.275438,0.0,protein palmitoylation,"858
+protein palmitoylation",858
+859,GO:0045162,0.192573,0.0,clustering of voltage-gated sodium channels,"859
+clustering of voltage-gated sodium channels",859
+861,GO:0021816,0.161286,0.0,extension of a leading process involved in cell motility in cerebral cortex radial glia guided migration,"861
+extension of a leading process involved in cell motility in cerebral cortex radial glia guided migration",861
+862,GO:0018026,0.297247,0.0,peptidyl-lysine monomethylation,"862
+peptidyl-lysine monomethylation",862
+863,GO:2000809,0.125741,0.0,positive regulation of synaptic vesicle clustering,"863
+positive regulation of synaptic vesicle clustering",863
+865,GO:0033564,0.118068,0.0,anterior/posterior axon guidance,"865
+anterior/posterior axon guidance",865
+866,GO:0043983,0.167109,0.0,histone H4-K12 acetylation,"866
+histone H4-K12 acetylation",866
+873,GO:0000183,0.266413,0.0,chromatin silencing at rDNA,"873
+chromatin silencing at rDNA",873
+875,GO:0031293,0.120375,0.0,membrane protein intracellular domain proteolysis,"875
+membrane protein intracellular domain proteolysis",875
+876,GO:0070076,0.204545,0.0,histone lysine demethylation,"876
+histone lysine demethylation",876
+877,GO:1903422,0.108604,0.0,negative regulation of synaptic vesicle recycling,"877
+negative regulation of synaptic vesicle recycling",877
+886,GO:0045653,0.134048,0.0,negative regulation of megakaryocyte differentiation,"886
+negative regulation of megakaryocyte differentiation",886
+887,GO:0006337,0.149092,0.0,nucleosome disassembly,"887
+nucleosome disassembly",887
+897,GO:0019228,0.153345,0.0,neuronal action potential,"897
+neuronal action potential",897
+911,GO:0034968,0.144746,0.0,histone lysine methylation,"911
+histone lysine methylation",911
+915,GO:0016577,0.148819,0.0,histone demethylation,"915
+histone demethylation",915
+921,GO:0045652,0.129824,0.0,regulation of megakaryocyte differentiation,"921
+regulation of megakaryocyte differentiation",921
+922,GO:0006482,0.130372,0.0,protein demethylation,"922
+protein demethylation",922
+932,GO:0006342,0.104898,0.0,chromatin silencing,"932
+chromatin silencing",932
+950,GO:0016571,0.123128,0.0,histone methylation,"950
+histone methylation",950
+954,GO:0018022,0.131297,0.0,peptidyl-lysine methylation,"954
+peptidyl-lysine methylation",954
+957,GO:0016569,0.132141,0.0,covalent chromatin modification,"957
+covalent chromatin modification",957
+960,GO:0006325,0.116321,0.0,chromatin organization,"960
+chromatin organization",960
