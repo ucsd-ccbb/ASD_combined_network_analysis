@@ -63,7 +63,7 @@ def main(num_reps=10, seed_gene_file='HC_genes/ASD_HC_no_shared_200114.tsv',int_
        
     elif single_or_double=='double': # calculate z-scores from two sets of seed genes:
         
-        # --- ASD-EPI and EPI-CHD temorarily commented out ----
+        # --- not currently functional ----
         
         print('calculating ASD-CHD z-scores')
         z_ASD_CHD,Fnew_rand_ASD_CHD = calc_zscore_heat_double(Gint,Wprime,ASD_HC,CHD_HC,num_reps=num_reps,rand_method = rand_method)

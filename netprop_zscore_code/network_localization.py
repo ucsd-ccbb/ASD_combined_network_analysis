@@ -204,7 +204,7 @@ def localization_full(Gint, focal_genes,
 def get_degree_binning(g, bin_size, lengths = None):
     
     """
-        Helper function for localization(). This function comes from network_utilities.py of emregtoobox.  
+        Helper function for localization(). This function comes from network_utilities.py of emregtoobox. https://github.com/emreg00/toolbox 
     """
     
     degree_to_nodes = {}
