@@ -1,0 +1,5 @@
+	atherosclerosis	CHD	ASD	ASD_GWAS
+atherosclerosis	0.0	586.0	263.0	337.0
+CHD	586.0	0.0	844.0	433.0
+ASD	263.0	844.0	0.0	487.0
+ASD_GWAS	337.0	433.0	487.0	0.0
