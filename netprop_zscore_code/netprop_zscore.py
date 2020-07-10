@@ -16,7 +16,7 @@ import sys
 from joblib import Parallel, delayed
 import multiprocessing
 
-def main(num_reps=10, seed_gene_file='HC_genes/ASD_HC_no_shared_200114.tsv',int_file='../interactomes/G_PCnet.gpickle', out_name='ASD',rand_method = 'degree_binning',single_or_double='single'):
+def main(num_reps=10, seed_gene_file='HC_genes/ASD_HC_no_shared_200114.tsv',int_file='../interactomes/G_PCnet.gpickle', out_name='ASD',rand_method = 'degree_binning',single_or_double='single',save_fnew_rand=False):
     '''
     
     Calculate z-scores for heat propagation
@@ -31,6 +31,8 @@ def main(num_reps=10, seed_gene_file='HC_genes/ASD_HC_no_shared_200114.tsv',int_
     print('background interactome = ' + int_file)
     print('randomization method = ' + rand_method)
     print('single or double = ' + single_or_double)
+    print('save Fnew rand = '+save_fnew_rand)
+    save_fnew_rand = np.bool(save_fnew_rand) # need to cast it to boolean from string 
     
     num_reps = int(num_reps)
     # load interactome and select focal interactome
@@ -58,7 +60,8 @@ def main(num_reps=10, seed_gene_file='HC_genes/ASD_HC_no_shared_200114.tsv',int_
         print('calculating z-scores: '+seed_gene_file)
         z_seed,Fnew_rand_seed = calc_zscore_heat(Gint,Wprime,seed_HC,num_reps=num_reps,rand_method=rand_method)
         z_seed.to_csv('z_'+out_name+'_'+str(num_reps)+'_reps_'+rand_method+'.tsv',sep='\t')
-        #pd.DataFrame(Fnew_rand_seed).to_csv('Fnew_'+outname+'_rand'+str(num_reps)+'_reps_'+rand_method+'.tsv',sep='\t')
+        if save_fnew_rand==True: # if true, save out the vector of randoms (this can be a large file)
+            pd.DataFrame(Fnew_rand_seed).to_csv('Fnew_'+out_name+'_rand'+str(num_reps)+'_reps_'+rand_method+'.tsv',sep='\t')
         
        
     elif single_or_double=='double': # calculate z-scores from two sets of seed genes:
@@ -124,7 +127,10 @@ def calc_zscore_heat(Gint,Wprime,genes_D1,num_reps=10,ks_sig = 0.3,rand_method =
                 degree_temp = nx.degree(Gint,g)
                 # find genes with similar degrees to focal gene degree
                 genes_temp = bin_df.loc[actual_degree_to_bin_df_idx[degree_temp]]['genes_binned']
+                
                 np.random.shuffle(genes_temp) # shuffle them
+                while genes_temp[0] in seed_D1_random: # make sure the gene isn't already in the list
+                    np.random.shuffle(genes_temp) # shuffle them
                 seed_D1_random.append(genes_temp[0]) # build the seed_D1_random list
                 
 #            # modify random seeds so that they have similar localization properties to input set
@@ -296,4 +302,4 @@ def get_degree_binning(g, bin_size, lengths=None):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4],sys.argv[5],sys.argv[6])
+    main(sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4],sys.argv[5],sys.argv[6],sys.argv[7])

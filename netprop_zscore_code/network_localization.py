@@ -21,7 +21,8 @@ import seaborn as sns # pip install seaborn
 
 # -------------------- LOCALIZATION ---------------------------------#
 
-def localization(Gint, focal_genes, num_reps = 10, sample_frac = 0.8, method = 'numedges', plot = True, print_counter = False):
+def localization(Gint, focal_genes, num_reps = 10, sample_frac = 0.8, method = 'numedges', plot = True, print_counter = False,
+                background_list=None):
     
     """
         Function to calculate localization of an input set of genes (focal_genes) on a background network (Gint).
@@ -38,6 +39,7 @@ def localization(Gint, focal_genes, num_reps = 10, sample_frac = 0.8, method = '
             plot: Bool, whether to plot the distributions in the output jupyter notebook cell
             print_counter: Bool, whether to print a counter that tells you which iteration you are on (every 25 iterations).
                            Useful when the num_reps is very high.
+            background_list: list of background genes to sample from. If none, jsut use all interactome genes
             
         Returns: 
             numedges_list: List, the number of edges calculated for each rep, sampling over focal genes. 
@@ -69,6 +71,10 @@ def localization(Gint, focal_genes, num_reps = 10, sample_frac = 0.8, method = '
     numedges_rand = []
     LCC_list = []
     LCC_rand = []
+    
+    if background_list==None:
+        background_list=Gint.nodes()
+    
     for r in range(num_reps):
 
         if print_counter == True:
@@ -86,7 +92,14 @@ def localization(Gint, focal_genes, num_reps = 10, sample_frac = 0.8, method = '
             degree_temp = nx.degree(Gint,g)
             genes_temp = bin_df.loc[actual_degree_to_bin_df_idx[degree_temp]]['genes_binned'] # use the lookup table for speed
             np.random.shuffle(genes_temp) # shuffle them
+            while (genes_temp[0] in seed_random) or (genes_temp[0] not in background_list): # make sure the gene isn't already in the list, but is in the background_list
+                np.random.shuffle(genes_temp) # shuffle them
+            
             seed_random.append(genes_temp[0]) # build the seed_D1_random list
+            
+        #print(len(focal_80))
+        #print(len(seed_random))
+        #print(len(np.unique(seed_random)))
 
         if (method == 'numedges') or (method == 'both'):
             
