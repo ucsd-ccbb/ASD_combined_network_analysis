@@ -13,8 +13,8 @@ import sys
 #import visJS2jupyter.visualizations
 
 # for parallel processing
-from joblib import Parallel, delayed
-import multiprocessing
+#from joblib import Parallel, delayed
+#import multiprocessing
 
 def main(num_reps=10, seed_gene_file='HC_genes/ASD_HC_no_shared_200114.tsv',int_file='../interactomes/G_PCnet.gpickle', out_name='ASD',rand_method = 'degree_binning',single_or_double='single',save_fnew_rand=False):
     '''
@@ -32,7 +32,6 @@ def main(num_reps=10, seed_gene_file='HC_genes/ASD_HC_no_shared_200114.tsv',int_
     print('randomization method = ' + rand_method)
     print('single or double = ' + single_or_double)
     print('save Fnew rand = '+save_fnew_rand)
-    save_fnew_rand = np.bool(save_fnew_rand) # need to cast it to boolean from string 
     
     num_reps = int(num_reps)
     # load interactome and select focal interactome
@@ -60,7 +59,7 @@ def main(num_reps=10, seed_gene_file='HC_genes/ASD_HC_no_shared_200114.tsv',int_
         print('calculating z-scores: '+seed_gene_file)
         z_seed,Fnew_rand_seed = calc_zscore_heat(Gint,Wprime,seed_HC,num_reps=num_reps,rand_method=rand_method)
         z_seed.to_csv('z_'+out_name+'_'+str(num_reps)+'_reps_'+rand_method+'.tsv',sep='\t')
-        if save_fnew_rand==True: # if true, save out the vector of randoms (this can be a large file)
+        if save_fnew_rand=='True': # if true, save out the vector of randoms (this can be a large file)
             pd.DataFrame(Fnew_rand_seed).to_csv('Fnew_'+out_name+'_rand'+str(num_reps)+'_reps_'+rand_method+'.tsv',sep='\t')
         
        
